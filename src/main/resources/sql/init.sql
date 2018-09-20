@@ -20,10 +20,10 @@ DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
   `id` varchar(32) COLLATE utf8_bin NOT NULL COMMENT 'ID',
   `username` varchar(45) COLLATE utf8_bin NOT NULL COMMENT '用户名',
-  `userpassword` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '用户密码',
+  `userpassword` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '用户密码',
   `realname` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '用户姓名',
   `mobile` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '用户手机号码',
-  `userstatus` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '用户状态，1：准成',
+  `userstatus` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '用户状态，1：正常',
   `credentialssalt` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '加密盐',
   `email` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '用户邮箱',
   `headimage` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '用户头像',

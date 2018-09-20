@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class  JwtAuthenticationRequest implements Serializable {
 
     private static final long serialVersionUID = -8445943548965154778L;
-    private String loginType;
     private String username;
     private String password;
 
@@ -37,11 +36,4 @@ public class  JwtAuthenticationRequest implements Serializable {
         this.password = password;
     }
 
-    public String getLoginType() {
-        return loginType;
-    }
-
-    public void setLoginType(String loginType) {
-        this.loginType = loginType;
-    }
 }

@@ -12,6 +12,7 @@ import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.mobile.device.Device;
+import org.springframework.mobile.device.LiteDevice;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -56,12 +57,13 @@ public class AuthenticationRestController {
 
             // Reload password post-security so we can generate token
             final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-            final String token = jwtTokenUtil.generateToken(userDetails, device);
+            final String token = jwtTokenUtil.generateToken(userDetails, LiteDevice.NORMAL_INSTANCE);
             SysUser user = userService.getUserByUserName(authenticationRequest.getUsername());
 //            map.put("member", user);
             // Return the token
             return new AjaxResponse<>(new JwtAuthenticationResponse(token));
         }catch (Exception e){
+            e.printStackTrace();
             throw new ResponseException("用户名或者密码错误！", HttpStatus.BAD_REQUEST);
         }
     }
